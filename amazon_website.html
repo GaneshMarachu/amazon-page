@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="C:\Users\ganes\Downloads\amazon.png">
+    <title>Amazon Grid Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        select {
+            background-color: #232F3E;
+            color: #eeee;
+            border: #232F3E 2px solid;
+
+        }
+
+        select>option {
+            background-color: #b8e1ba;
+            color: #eeee;
+
+        }
+
+        .laguage {
+            padding: 3px;
+            display: inline;
+            background-color: #232F3E;
+        }
+
+        header {
+            background: #232F3E;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .delivery {
+            font-size: 0.85em;
+            margin-right: 16px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 6px;
+            margin-right: 20px;
+            border-radius: 3px;
+            border: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            margin-left: 12px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        nav {
+            background: #131A22;
+            color: #fff;
+            padding: 8px 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px;
+        }
+
+        .promo-banner {
+            background: linear-gradient(90deg, #ffaf47, #e4425a);
+            color: #fff;
+            margin: 20px auto 30px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            padding: 0;
+        }
+
+        .promo-banner {
+            background-image: url('https://images-eu.ssl-images-amazon.com/images/G/31/Events/img25/JUP25/Jupiter_Live_now_H1_Mega_festive_deals_2X._CB799068240_.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            margin: 20px auto 30px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            padding: 60px 0 120px 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .promo-banner p {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+
+        .home-grid {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            transform: translateX(0) translateY(55%);
+
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 18px 10px 16px 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 220px;
+        }
+
+        .card h3 {
+            font-size: 1.03em;
+            margin: 0 0 8px 0;
+            color: #232f3e;
+        }
+
+        .products {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            text-align: center;
+            position: relative;
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .product-image-wrap {
+            position: relative;
+            height: 290px;
+            width: 120px;
+            margin: 0 auto 3px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f8f8;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .product-image-wrap img {
+            width: 100px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 4px;
+            padding: 0px;
+            margin: 0;
+            display: block;
+        }
+
+        .tag {
+            background: #e4425a;
+            color: #fff;
+            font-size: 0.74em;
+            font-weight: bold;
+            padding: 2px 7px;
+            border-radius: 10px 10px 10px 0;
+            position: relative;
+            bottom: -5%;
+            right: 4px;
+        }
+
+        .price {
+            color: #e4425a;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .advertisement {
+            background: #fff;
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            min-width: 170px;
+            max-width: 200px;
+        }
+
+        .advertisement h3 {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .advertisement .price {
+            color: #e4425a;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: 7px;
+        }
+
+        .earbuds-img {
+            width: 120px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 8px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .home-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 30px;
+            }
+
+            .promo-banner,
+            .home-grid {
+                max-width: 98vw;
+            }
+
+            .section {
+                margin-bottom: 0;
+                position: relative;
+
+            }
+
+        }
+
+        .section {
+            margin: 20px auto 30px auto;
+            margin-top: 150px;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            padding: 60px 0 10px 0;
+            position: relative;
+            background-color: #ffff;
+
+        }
+
+        .section1 {
+            margin: 20px auto 30px auto;
+            margin-top: 40px;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            padding: 60px 0 10px 0;
+            position: relative;
+            background-color: #ffff;
+
+        }
+
+        .sub {
+            width: 300px;
+            padding-left: 40px;
+        }
+
+        .sub-product {
+            text-align: center;
+            position: relative;
+            width: 200px;
+            margin-bottom: 10px;
+
+        }
+
+        .sub-product-image-wrap {
+            position: relative;
+            height: 290px;
+            width: 200px;
+            margin: 0 auto 3px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f8f8;
+            border-radius: 6px;
+            overflow: hidden;
+
+        }
+
+        .sub-product-image-wrap img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin: 0;
+            display: block;
+        }
+
+        .sub-home-grid {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(20px, 1fr));
+            gap: 100px;
+
+        }
+
+        .head-footer {
+            text-align: center;
+            background-color: #232f3e;
+            color: #f2f2f2;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .body-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            justify-content: center;
+            padding: 50px 200px;
+            background-color: #131A22;
+            color: #f2f2f2;
+        }
+
+        .footer-content {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .footer-content b {
+            font-size: 16px;
+        }
+
+        .middle-footer {
+            background-color: #232f3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            gap: 30px;
+        }
+
+        .amazon-logo {
+            width: 100px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-buttons button {
+            background-color: transparent;
+            border: 1px solid #888;
+            color: #ddd;
+            padding: 8px 14px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .footer-buttons button:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .bottom-footer {
+            background-color: #131A22;
+            color: #ccc;
+            padding: 30px 100px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links p {
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        .footer-links span {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .footer-legal p {
+            margin: 5px 0;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo"
+                    class="amazon-logo"></div>
+        <div class="delivery">Deliver to <strong>M Edlapadu 522233</strong></div>
+        <input type="text" placeholder="Search Amazon.in" />
+        <div class="nav-links">
+            <image width="20px" hight="20px"
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFxURHxMYHSkgGB0lJhMTIT0jJSkrLjouFyA/ODgtPi0tLjcBCgoKDQ0OFQ8PFTcdFR0rLS0tKy0rLisrMS0rLSsrKysrLysrKy0tLS4rLSsxLys3KystNy0rKy4tKy0tKystMv/AABEIALcBEwMBEQACEQEDEQH/xAAbAAEBAQEAAwEAAAAAAAAAAAAAAQIGAwUHBP/EADYQAAICAAMECQIEBgMAAAAAAAABAgMEBRESFiHSBhMiMVJUkZKTB0EUUWHRFSMyU3GBM2Kx/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECBAUDBv/EADERAQABAQYEBQQBBAMAAAAAAAABAwIUFVFSoREhgdEEEzGx8BJBYXEiBSNCkTLB8f/aAAwDAQACEQMRAD8A9ufkXsKRVI0oVSKoaUKEVQqhQiqACgVQAAKAAARAAQAgQKiBACBEZWUCBWWQgVEYZQopFUKpGlCqRVDQRVCqFUigUC8FAEVQAUAAAAOCBAqAECARCoAQIgZRlRAyhUQqIGUKKQhSNNBqAitBQjShVCqRQKoUIqgAqhQAAAAAIEAARCogAIhWUABlCpKBEKygSUKzKBFCqRpSKqDUKRVDShVIoFUKpFAqhQgAAoAAAAAQKIEAIEQqAZQqIEQIFRkMoVEDIVBEWGgqkaVBpSLAGlIqhVCqRQKoUIqgAoAAAAGgAIgAIFRAiFECAZQqIEQMoVEKygSUKioiqRVDUKRqFCqFUiqGgiqFUKEVQoACqAIAAAUQIAAiBAqIEQqIEQqIGUCBUZDKFZACApGmkGoUiqGgiqFUNKRVChBQ0AUigAKAAAAAEQqAECBUQIgRCoBEKyjCIysygRCsygR7VZDd46vWX7HVdLebiv8ATyn51aWQ3eOr1n+wudvOGr/Tyn51aXR+7x1es/2FyqZwt/p5T86tLo9d46vWfKW41M4+dFxCnlPzqq6PX+On3T5RcKmcfOi4hTyn51aXR2/x0+s+UuH1M4+dFxGnlPzqq6OX+On1nyjDqucfOi4jSynbuq6N3/3KfWfKMNq5xv2XEaWU7d2l0bv8dPunylw2rnG/ZcSpZTt3Xdq/x0+s+UYZVzjfsuJUsp27ru1f/cp9Z8owurqjfsYlSynbuu7OI8dPunyjC62cb9lxOlpnbubs4jx0+6fKXCq2qN+xidLTO3dd2cR46fdPlGFVtUb9lxOlpnbuu7GI8dPunyjCa2qN+xidLTO3c3YxHjp90+UYTW1Rv2XFKWmdu5uxiPHT7p8owmtqjfsYpS0zt3N2MR46fdPlGE1tUb9jFKWmdu5uxiPHT7p8owmtqjfsYpS0zt3N2MR46fdPlGE1tUb9kxOlpnbum7GI8dPunyjCq2qN+xidLTO3c3ZxHjp90+UYVW1Rv2MTpaZ27puziPHT7p8owutnG/ZMTpaZ27puziP7lPunykwutqjfsYnSynbuj6NX+On1nyjDKucb9kxKllO3dN2r/HT6z5RhtXON+yYlSynbum7d/jp9Z8pMNq5xv2TEaWU7d03cv8dPrPlGHVc437JiNLKdu7O7l/jp9Z8ow+rnHzomI0sp+dUfR2/x0+s+UlwqZx86JiNPKfnVl9HrvHT6z5RcamcfOhiFPKfnVH0fu8dXrP8AYk+CqZwzf6eU/OrLyC7x1es/2Fzt5wl/p5T86svIbvHV6y/YXS3ml/p5T86s/wACu8VXrL9iXW3ml+p5T86ujR6EPLbRqBtGoGkahW0ahWkagbRoaRVaRoaRRpFFKrRRSilHixeKqornddZCqqC1nZZNQhFfm5PgjVmzNqeERzHAZt9Zclw8nGr8TjGtU5UVKNa0en9Vjjqv1SaO6x/Ta9r15ftn64fnf1nwFdihisBmWFbSknZVXqo6tbWy5J6cH3a9xrDakxxs2onqfW7Po70py7NIuWBxVdzitZ18YXQX5uuWkkv100OOrQqUp4W7PBYmJe5PiqAQgjIMsgjIjLMjLIMszKMMyMskjDMyjLMyMMyjDMjOhlFRpW0aG0UbRtWkahW0WBpGoGkaVtFGkWBUaVpFFKNIo/FnWa0YDDXYvEz2KaIOc3939lFL7ttpJfm0bp07VS1Fiz6yPkmVZdiuluIrx+Y3qnK1iLIYbL4Sl21CL1W0tFt93F8WtrTRLQ9W3UseDszYpxxt8OcsRH1fp9ByjLMBgYRqw2FpohLGSpxlS1lBXTinGWkm+DcaNlfZTXccFS3UqTxtWuM8OTcRD9mHthY6YuMJTsxeYRk2ltrD04izXj+W0qVp/wBjE8Y4z+hw2e/TnDWV4fG5JKOWYpXSnhZwsufX1tScdO09HJvXXuUO9aI7afjbUTNit/Kz92Zs5Pd/TPpu8zhbg8ZsQzPBOUb4x2VG+EZbLtSXDv4NLhq01wei+PjPC+VMW7H/AAn07LZni7k4lQgjJIyyDLJKMsyMsgyySMsyjEjIyzKMMyMMyjDMjJEVFV5EaG4mlaRobiahWkaG0WBpGlaRRo0NIqqijRRSj5V9X53ZhjsryGicY9ft4y/bVji4xUtjVQ7TWkLuC++z3d56ngIinTt15+3KGbXPhDuL5Q6uVFCqxdMYpSwddkKcXSlxjscVxWkdFLZaa12tdEcMcePGeU5/Zpxec51Z/NUbFZaoKnrLIOnasrfXYWdtTSdN9U4rVaJSrnKceENmPXYsRy5cvkTw/E+/Jl+PD57G2ViU421TnjIfyJRd3U3Y6/EXUp66RdkVhI6txSirZNrY1N2qU2Y9OfaIiP8AXPbM4uyyfMLLYvFa1Nzjo8bZrXl9FT4qmhS0ldHhHWzsxl3p6JQXJUsxHLb79cv01Dj+ncf4fmmW59h5wnSp14XFWQUlK5TlNzk9lbE04y0WmnFcdft2eF/uUrdG16+sM2o4TEvrMJa/v+h5UtKwIQZMjLIiMkjLMjDIMsyjLMjDMyjLMjDJKMMzIwZRUVXkRobiaVpGhtGoVpGhtFVpGhpFGiwK3oaVlNtrX9DUDcZ+gFVnEqvluexjvrgnZW7JSwMfwz2XONVq61qxxUlqlsz/AMao9SnM3K1wn789mP8AJ1udWK+PVztwWK0l/wASyq7HyjL9VC3sf5ehyU+XOImOvD/pqXynpxhr7MPfWtrbhd1c4JSlZGCW26kniLtldmM+qUovSOuzwPT8Las2bcT9vn4j/b5y5XoNgr/xm1sONSjKNm3XOUZyXajFJcZSTipcOK2G+Gmp2eLt2Po9eaWYfZujcdlV4mXUpyjrXirsuuxzlD8/xscVatP8yR4tXKPfhtwh9Ies+td8J5TVObrxEpYqMcPdh6n1dctl7Wr6yS4x1WnE+39Oj+9MenLnxS36PpeDbjVUn/Uqq9v79rZWp5tr1lp5tviZGXZ6EGjIyySiMyMsgyyDEjMoyzMjDMoyzMjDIjDMyMMiKgraNDyRNK0jQ3E1CtI0NIsK2jQ0ijRqAktUVUjF68fsaG4R4NP7gRRa7l/4UfNPrLgrsO8BnWH1U8DZKm6cYQslCm16KWzPstauUdH/AHEen/T7UWvro2v8vT9s2s3WV5jTj8NDEU3u3C2NwqowcnC2+a1/lOzVOP6pbOmj1bWpxzYtU7X0zHCfy16uczXIp9uMNiudUKqF+HhH8PhcRfKMMNhKoacIVucL5yaTlKNTfBbMeixV+fr1mf36QnB+evIpOc24St7eZWV0R7MrKsPmNsbaozXGM3GzDSi001PDQaa0Zqasfr03j/3j+JTg6jKsF1clKFqVl2ltONrjFU5lBx1jK2paRd2mmslsuSWsWlrGPNbtcftyj7Zfr8NRDhukeJ/j2f4DLaLa7sJhdjFY7qYxlXGyqyW0+t75apxhs9yc/ud1Gz5Hh7dS1HCZ5R1ZnnPB9d2Hq/8AB5LTOy+H6AZlB/Ygva2v+pkGREZJGWZGGSRlmUZZBhmEZZkeNkRlmZGDKKiwraNDaNQNosK0jcK2iwNI1A0jStooqLA0jQ0iqpRpFHixeGrvqspuhGyq2Eq7ISWsZwktGmWzamJ4x6wPkV2DzToliOsojZj8hdllk4KMbL8LCUXrFt8YLXZe0uy9la6NnrRapeLs8LX8avuxzs/p0OTfUHJMTVVY8WsMqcTZZZHFuFd11jWyp7Cb1i3btcO7Y+2hz1PB17EzH08eMfZqLUPZ29I8qwzrjdmGErtqxOLxWy7odqm2+6Pf9/8Ak2tO/snys0atrj9NmeHovGHGYvp7is12cD0aw2I252SsuuxFNahhYScvvrJQ7XbTf6JLhodlnwlij/PxM9M2Pq4+juugPQ6rJsNKO11+LvasxeJeuttnhWvHZWr7+LbbfecXivEzWtcfSzHpDURwdOcyoQZZBGQZZJRlmRlkGWSRlmUYkZGWZRhmRhmUYZkZIioQNo1Cto1A0jUK2jUK0jQ2iwNI0rSKNI1A0iioqtIsClFKBRzWb9AMlxsnO/L6NtvWU6drDyk/zbra1/2dFPxdanys2uSfTD8OF+lXR+qSksDttcUrb77I+1y0f+z6WvH+ImOH1H0w6zA4KjDVqrD01UVR/prprjXBf6S0OS1am1PG1PGVecyIQQCGRlgZZmURkGWQYZmUZZkZkQYZmUZZkYZlGGZGTKPke9eZebn7KeU5/MtZvFvNXUu9mZ+cn8dPKPMtZrea2o3tzPzk/jp5S+bbzLzW1LvdmnnJ/HTyjzbeZea2td78085P46eUvnW8y9VtRvhmvnJ/HTyjz6mZeq2pd8c187P46eUefUzL1W1G+Wa+ds+OnlLeKmZeq2r2N8s187Z7KeUXipmXqtq9l3zzbztnx08ovFXMvVbV7G+ebeds+OnlLeauovVbUb6Zt56z46eUXmrqL1W1exvpm3nrPjp5Reaupb3W1ey765t56z46eUXqrqS9V9Zvrm/nrPjp5RequovVfWb65v56z2U8pb1V1F6r6zfXN/PWfHTyi9VdRe6+v2N9c389Z8dPKL1V1F6r6zfXN/PWfHTyi9VdS3uvq9jfXN/PWeynlF6q6kvVfWb65v56z46eUl6q6i9V9Zvrm3nrPjp5Requpb1W1Jvpm3nrPjp5ReaupL1W1G+ebeds+OnlF5q6i9VtXsb55t52z46eUl5q5l6ravZN8s287Z7KeUXipmXqtq9jfLNfO2fHTyi8VMy9VtXsb45r52fx08pPPqZl6rak3xzXzk/jp5R59TMvVbUb4Zp5yfx08o863mXqtqTe/NPOT+OnlJ51vMvNbUb3Zn5yfx08o823mXmtqTezM/OT+OnlJ5trMvNbUm9mZ+bn8dPKPMtZpeauo3rzLzc/ZVyjzLRea2p6Yw+IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//Z">
+                <div class="laguage">
+                    <select name="laguage">
+                        <option value="enlish">En</option>
+                        <option value="telugu">tel</option>
+                        <option value="tamil">tam</option>
+                        <option value="hindi">hin</option>
+                        <option value="maliyalam">mal</option>
+                        <option value="urdhu">urd</option>
+                    </select>
+                </div>
+                <a href="#">Account & Lists</a>
+                <a href="#">Returns & Orders</a>
+                <a href="#">Cart</a>
+        </div>
+    </header>
+    <nav>
+        <a href="#">All</a>
+        <a href="#">Fresh</a>
+        <a href="#">prime</a>
+        <a href="#">MX Player</a>
+        <a href="#">sell</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Buy Again</a>
+        <a href="#">Amazom pay</a>
+        <a href="#">kindle ebook</a>
+        <a href="#">AmazonBasics</a>
+        <a href="#">Today's Deals</a>
+        <a href="#">Books</a>
+        <a href="#">Gift ideas</a>
+        <a href="#">Browsing History</a>
+    </nav>
+    <div>
+        <section class="promo-banner">
+            <section class="home-grid">
+                <div class="card">
+                    <h3>Keep shopping for</h3>
+                    <div class="products">
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/31eJTTlRPuL._MCnd_AC_.jpg"
+                                    alt="Backpack" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>₹799</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/71E0VC4P5KL._AC_UY218_.jpg"
+                                    alt="Keyboard" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>₹599</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Deals you might like</h3>
+                    <div class="products">
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/51Ze6s3CdGL._AC_AIweblab1228328,T4_SF145,145_QL85_.jpg?aicid=homepage-qmacv2"
+                                    alt="Shirt" />
+                            </div>
+                            <span class="tag">55% off</span>
+                            <div class="price"> Great indian Festival<br><br>₹499</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/71iQTpdLgNL._AC_AIweblab1228328,T4_SF145,145_QL85_.jpg?aicid=homepage-qmacv2"
+                                    alt="Supplement" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>
+                                ₹1,099</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Deals picked just for you</h3>
+                    <div class="products">
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/81jAF+jnHKL._AC_AIweblab1228328,T4_SF145,145_QL85_.jpg?aicid=homepage-qmacv2"
+                                    alt="TV" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>
+                                ₹18,999</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/31828dssktL._MCnd_AC_.jpg"
+                                    alt="Mr90y laptop battery" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>
+                                ₹2299</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Single Door Refrigerator</h3>
+                    <div class="products">
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/61gXEHID2WL._AC_AIweblab1228328,T4_SF145,145_QL85_.jpg?aicid=homepage-qmacv2"
+                                    alt="Refrigerator" />
+                            </div>
+                            <span class="tag">40% off</span>
+                            <div class="price"> Great indian Festival<br><br>
+                                ₹13,299</div>
+                        </div>
+                        <div class="product">
+                            <div class="product-image-wrap">
+                                <img src="https://m.media-amazon.com/images/I/61leXN28gkL._AC_AIweblab1228328,T4_SF145,145_QL85_.jpg?aicid=homepage-qmacv2"
+                                    alt="Refrigerator" />
+                            </div>
+                            <span class="tag">35% off</span>
+                            <div class="price"> Great indian Festival<br><br>
+                                ₹1,099</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <section class="section">
+        <h2>Top deals with exchange | Up to ₹74,000 off</h2>
+        <section class="sub-home-grid">
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/31KxpX7Xk7L._SR480,440_.jpg" alt="phone 1" />
+
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹1,11,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41fEpZN2MUL._SR240,220_.jpg" alt="phone 1" />
+
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹39,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/31KxpX7Xk7L._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹1,11,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41XNWqWVm1L._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹13,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41Qih-v5NQL._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹13,099</div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- section 3 -->
+    <section class="section1">
+        <h2>Top deals with exchange | Up to ₹74,000 off</h2>
+        <section class="sub-home-grid">
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/31KxpX7Xk7L._SR480,440_.jpg" alt="phone 1" />
+
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹1,11,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41fEpZN2MUL._SR240,220_.jpg" alt="phone 1" />
+
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹39,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/31KxpX7Xk7L._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹1,11,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41XNWqWVm1L._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹13,099</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub-product">
+                    <div class="sub-product-image-wrap">
+                        <img src="https://m.media-amazon.com/images/I/41Qih-v5NQL._SR480,440_.jpg" alt="phone 1" />
+                    </div>
+                    <p><span class="tag">35% off</span> Great Indian Festival</p>
+                    <div class="price">₹13,099</div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer>
+        <section class="head-footer">
+            back to top
+        </section>
+        <section class="body-footer">
+            <div class="footer-content">
+                <b>Get to Know Us</b><br><br>
+                About Amazon <br>
+                Careers <br>
+                Press Releases <br>
+                Amazon Science <br>
+            </div>
+            <div class="footer-content">
+                <b>Connect with Us</b><br><br>
+                Facebook <br>
+                Twitter <br>
+                Instagram <br>
+            </div>
+            <div class="footer-content">
+                <b> Make Money with Us</b><br><br>
+                Sell on Amazon<br>
+                Sell under Amazon Accelerator<br>
+                Protect and Build Your Brand<br>
+                Amazon Global Selling<br>
+                Supply to Amazon<br>
+                Become an Affiliate<br>
+                Fulfilment by Amazon<br>
+                Advertise Your Products<br>
+                Amazon Pay on Merchants<br>
+            </div>
+            <div class="footer-content">
+                <b>Let Us Help You</b><br><br>
+                Your Account <br>
+                Returns Centre <br>
+                Recalls and Product Safety Alerts <br>
+                100% Purchase Protection <br>
+                Amazon App Download <br>
+                Help <br>
+            </div>
+        </section>
+        <section class="middle-footer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo"
+                    class="amazon-logo">
+                <div class="footer-buttons">
+                    <button>🌐 English</button>
+                    <button src="data:image/jpeg;base64,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">India</button>
+                </div>
+        </section>
+        <section class="bottom-footer">
+            <div class="footer-links">
+                <p>AbeBooks<br><span>Books, art<br>& collectibles</span></p>
+                <p>Amazon Web Services<br><span>Scalable Cloud<br>Computing Services</span></p>
+                <p>Audible<br><span>Download<br>Audio Books</span></p>
+                <p>IMDb<br><span>Movies, TV<br>& Celebrities</span></p>
+                <p>Shopbop<br><span>Designer<br>Fashion Brands</span></p>
+                <p>Amazon Business<br><span>Everything For<br>Your Business</span></p>
+                <p>Prime Now<br><span>2-Hour Delivery<br>on Everyday Items</span></p>
+                <p>Amazon Prime Music<br><span>100 million songs, ad-free<br>Over 15 million podcast episodes</span></p>
+            </div>
+
+            <div class="footer-legal">
+                <p>Conditions of Use & Sale&nbsp;&nbsp;|&nbsp;&nbsp;Privacy
+                    Notice&nbsp;&nbsp;|&nbsp;&nbsp;Interest-Based Ads</p>
+                <p>© 1996-2025, Amazon.com, Inc. or its affiliates</p>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
